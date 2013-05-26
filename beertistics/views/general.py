@@ -50,3 +50,8 @@ def about():
 def friend_list():
     friends = user_service.friend_list_for('valle')
     return flask.render_template('friend-list.html', friends=friends)
+
+@app.route('/checkins')
+@auth.requires_auth
+def checkins():
+    return flask.render_template('checkins.html')
